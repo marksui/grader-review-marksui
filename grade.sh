@@ -16,7 +16,7 @@ cp -r student-submission/ListExamples.java ./grading-area
 cp -r lib ./grading-area
 
 
-cd /Users/mark/Downloads/list-examples-grader/grading-area
+cd ./grading-area
 
 set -e
 
@@ -43,6 +43,7 @@ else
 fi
 
 javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
+java -cp $CPATH org.junit.runner.JUnitCore TestListExamples
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > output.txt
 pwd
 grep -c "failures" $junit
